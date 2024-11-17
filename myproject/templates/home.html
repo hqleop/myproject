@@ -1,0 +1,15 @@
+{% extends "main/layout_main.html" %} {% load static %} {% block title %}
+tendbid {% endblock %} {% block header %}
+<nav class="nav_main">
+  <ul>
+    <li><p>Головна</p></li>
+    <li><a href="#">Послуги</a></li> <!--url 'services'-->
+    <li><a href="#">Про компанію</a></li> <!--url 'about'-->
+    <li><a href="#">Контакти</a></li> <!--url 'contacts'-->
+  </ul>
+</nav>
+<div class="login_main">
+  <a type="button" class="login" href="{% url 'login' %}">Вхід</a>
+  <a type="button" class="sign_up" href="{% url 'register' %}">Реєстрація</a>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "main/layout_main.html" %} {% load static %} {% block title %}
+tendbid {% endblock %} {% block header %}
+<div class="login_main" style="float: right">
+  <a type="button" class="login" href="{% url 'login' %}">Вхід</a>
+</div>
+{% endblock %}
+{% block body_main %}
+ <h2>Реєстрація</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

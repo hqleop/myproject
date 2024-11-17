@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+header {
+  min-width: 1024px;
+}
+.header_main,
+.logo_main,
+.nav_main,
+.nav_main ul,
+.login_main,
+.sign_up,
+.login {
+  display: flex;
+}
+
+.header_main {
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+  padding: 0 20px; /* Додатково: додаємо відступи зліва і справа */
+  background-color: #f8f8f8; /* Додатково: фон для header */
+}
+
+.logo_main {
+  margin-left: 15px;
+  align-items: center;
+}
+
+.nav_main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_main li,
+.nav_main p {
+  margin: 0 15px;
+  font-size: 1.2rem;
+}
+
+.nav_main a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.nav_main a:hover,
+.nav_main p {
+  color: #007bff;
+  border-bottom: 2px solid #fff633;
+  cursor: pointer;
+}
+
+.login_main {
+  align-items: center;
+}
+.sign_up,
+.login {
+  width: 85px;
+  height: 40px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  border: 0px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  background-color: #e0ffff;
+}
+
+.sign_up:hover,
+.login:hover {
+  color: #007bff;
+  border: 1px solid #e0ffff;
+  border-bottom: 2px solid #fff633;
+  transition: color 0.3s;
+}
