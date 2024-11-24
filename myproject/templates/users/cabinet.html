@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>Welcome, {{ user.username }}</h2>
-    <a href="{% url 'logout' %}">Logout</a>
-</body>
-</html>
+{% extends "main/layout_main.html" %} {% load static %} {% block title %}
+tendbid {% endblock %} {% block header %}
+<h2> Привіт, {{ user.username }}</h2>
+<div class="login_main" style="float: right">
+  <a type="button" class="sign_up" href="{% url 'logout' %}"> Вихід </a>
+</div>
+{% endblock %}
+{% block body_main %}
+
+{% endblock %}
+
+
+

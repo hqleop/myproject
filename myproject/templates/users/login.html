@@ -5,10 +5,15 @@ tendbid {% endblock %} {% block header %}
 </div>
 {% endblock %}
 {% block body_main %}
-<h2>Вхід</h2>
-<form method="post">
-    {% csrf_token %}
+
+<div class="login_div">
+    <div class="login_form">
+    <h1>Вхід</h1>
+    <form method="post">
+        {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+    <button type="submit">Вхід</button>
+    </form>
+    </div>
+</div>
 {% endblock %}
