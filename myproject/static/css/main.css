@@ -7,7 +7,9 @@
   --accent-color: #f6ae2d;
   --white: #ffffff;
 }
-
+body {
+  display: flexbox;
+}
 * {
   padding: 0;
   margin: 0;
@@ -28,9 +30,9 @@ header {
 .header_main {
   align-items: center;
   justify-content: space-between;
-  height: 65px;
-  padding: 0 20px; /* Додатково: додаємо відступи зліва і справа */
-  background-color: var(--background-color); /* Додатково: фон для header */
+  height: 60px;
+  padding: 0 20px;
+  background-color: var(--background-color);
 }
 
 .footer_main {
@@ -38,8 +40,8 @@ header {
   bottom: 0;
   width: 100%;
   height: 215px;
-  padding: 0 20px; /* Додатково: додаємо відступи зліва і справа */
-  background-color: var(--light-element-color); /* Додатково: фон для header */
+  padding: 0 20px;
+  background-color: var(--light-element-color);
 }
 
 .logo_main {
@@ -135,4 +137,78 @@ header {
   border: 1px solid var(--second-color);
   border-radius: 5px;
   background-color: var(--main-color);
+}
+
+/* Menu */
+.sidebar {
+  background-color: var(--main-color);
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+  margin: 5px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background-color: #e2e2e2;
+}
+
+.sidebar ul li i {
+  font-size: 18px;
+}
+
+.sidebar ul li span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar.collapsed ul li span {
+  display: none;
+}
+/* Submenu */
+.submenu {
+  display: none;
+  flex-direction: column;
+  margin-left: 35px;
+  margin-top: 5px;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 0;
+}
+
+.submenu a:hover {
+  text-decoration: underline;
+}
+
+.sidebar ul li.open .submenu {
+  display: flex;
 }

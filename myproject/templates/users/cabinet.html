@@ -1,11 +1,40 @@
-{% extends "main/layout_main.html" %} {% load static %} {% block title %}
-tendbid {% endblock %} {% block header %}
-<h2> Привіт, {{ user.username }}</h2>
-<div class="login_main" style="float: right">
-  <a type="button" class="sign_up" href="{% url 'logout' %}"> Вихід </a>
-</div>
-{% endblock %}
+{% extends "users/layout_cabinet.html" %} {% load static %} {% block title %}
+tendbid {% endblock %}
 {% block body_main %}
+<div class="login_main" style="float: right">
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="sign_up" type="submit">Вийти</button>
+    </form>
+    {% else %}
+    <a href="{% url 'login' %}">Увійти</a>
+    {% endif %}
+</div>
+
+<div class="sidebar" id="sidebar">
+      <div class="logo">🌐 logo</div>
+
+      <ul>
+        <li class="active" onclick="toggleMenu(this)">
+          <i>🏠</i> <span>Home</span>
+          <div class="submenu">
+          </div>
+        </li>
+        <li><i>🛠️</i> <span>Service</span></li>
+        <li><i>📐</i> <span>Layout Option</span></li>
+        <li><i>📝</i> <span>Editor</span></li>
+        <li><i>📋</i> <span>Forms</span></li>
+        <li><i>🖼️</i> <span>Icons</span></li>
+        <li><i>🔔</i> <span>Notifications</span></li>
+        <li><i>🔌</i> <span>Plugins</span></li>
+      </ul>
+    <button class="toggle-button" id="toggleButton">☰</button>
+    </div>
+<h2> Привіт, {{ user.username }}</h2>
+    <script>
+
+    </script>
 
 {% endblock %}
 
