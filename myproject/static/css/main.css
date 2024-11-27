@@ -8,14 +8,17 @@
   --white: #ffffff;
 }
 body {
-  display: flexbox;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
 }
 * {
   padding: 0;
   margin: 0;
 }
 header {
-  min-width: 1024px;
+  justify-content: space-between;
+  width: 100%;
 }
 .header_main,
 .logo_main,
@@ -25,6 +28,7 @@ header {
 .sign_up,
 .login {
   display: flex;
+  align-items: center;
 }
 
 .header_main {
@@ -76,9 +80,6 @@ header {
   cursor: pointer;
 }
 
-.login_main {
-  align-items: center;
-}
 .sign_up,
 .login {
   width: 85px;
@@ -101,9 +102,6 @@ header {
 .login_form button:hover {
   color: var(--accent-color);
   transition: color 0.3s;
-}
-
-.input_login_form {
 }
 
 .login_div {
@@ -139,22 +137,61 @@ header {
   background-color: var(--main-color);
 }
 
+/* Cabinet */
+.cabinet_main_content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ecf0f1;
+}
+
+.cabinet_header {
+  background-color: var(--white);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+}
+
+.cabinet_header input[type="text"] {
+  padding: 5px;
+  border: solid 1px var(--main-color);
+  border-radius: 4px;
+  width: 300px;
+}
+
+.cabinet_header .user-info {
+  padding: 10px;
+  background-color: var(--white);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cabinet_content {
+  flex-grow: 1;
+  padding: 20px;
+}
 /* Menu */
 .sidebar {
   background-color: var(--main-color);
   width: 200px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  position: relative;
-  transition: width 0.3s;
-  overflow: hidden;
+  position: static;
+  transition: width 0.3s ease;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .sidebar.collapsed {
   width: 60px;
 }
-
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+}
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -171,11 +208,13 @@ header {
   border-radius: 8px;
   transition: background-color 0.3s;
   cursor: pointer;
+  color: var(--white);
 }
 
 .sidebar ul li:hover,
 .sidebar ul li.active {
-  background-color: #e2e2e2;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .sidebar ul li i {
@@ -191,24 +230,5 @@ header {
 .sidebar.collapsed ul li span {
   display: none;
 }
+
 /* Submenu */
-.submenu {
-  display: none;
-  flex-direction: column;
-  margin-left: 35px;
-  margin-top: 5px;
-}
-
-.submenu a {
-  text-decoration: none;
-  color: #333;
-  padding: 5px 0;
-}
-
-.submenu a:hover {
-  text-decoration: underline;
-}
-
-.sidebar ul li.open .submenu {
-  display: flex;
-}

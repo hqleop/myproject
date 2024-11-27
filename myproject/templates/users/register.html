@@ -5,7 +5,8 @@ tendbid {% endblock %} {% block header %}
 </div>
 {% endblock %}
 {% block body_main %}
- <h2>Реєстрація</h2>
+<div class="">
+<h2>Реєстрація</h2>
     <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -20,4 +21,5 @@ tendbid {% endblock %} {% block header %}
     {% endif %}
     <button type="submit">Register</button>
 </form>
+ </div>
 {% endblock %}

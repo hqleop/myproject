@@ -1,42 +1,48 @@
 {% extends "users/layout_cabinet.html" %} {% load static %} {% block title %}
-tendbid {% endblock %}
-{% block body_main %}
-<div class="login_main" style="float: right">
-    {% if user.is_authenticated %}
-    <form method="post" action="{% url 'logout' %}">
+tendbid {% endblock %} {% block body_main %}
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">🌐 logo</div>
+  </div>
+  <button class="toggle-button" id="toggleButton">☰</button>
+  <div class="sidebar-menu">
+    <ul>
+      <li><i>🔔</i> <span>Аналітика</span></li>
+      <li><i>🛠️</i> <span>Налаштування</span></li>
+      <li><i>📝</i> <span>Створити тендер</span></li>
+      <li><i>📋</i> <span>Журнал тендерів</span></li>
+    </ul>
+  </div>
+</div>
+<div class="cabinet_main_content">
+  <div class="cabinet_header">
+    <input type="text" placeholder="Пошук..." />
+    <div class="login_main" style="float: right">
+      {% if user.is_authenticated %}
+      <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button class="sign_up" type="submit">Вийти</button>
-    </form>
-    {% else %}
-    <a href="{% url 'login' %}">Увійти</a>
-    {% endif %}
+      </form>
+      {% else %}
+      <a href="{% url 'login' %}">Увійти</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="cabinet_content">
+    <!-- Робоча область -->
+  </div>
 </div>
 
-<div class="sidebar" id="sidebar">
-      <div class="logo">🌐 logo</div>
-
-      <ul>
-        <li class="active" onclick="toggleMenu(this)">
-          <i>🏠</i> <span>Home</span>
-          <div class="submenu">
-          </div>
-        </li>
-        <li><i>🛠️</i> <span>Service</span></li>
-        <li><i>📐</i> <span>Layout Option</span></li>
-        <li><i>📝</i> <span>Editor</span></li>
-        <li><i>📋</i> <span>Forms</span></li>
-        <li><i>🖼️</i> <span>Icons</span></li>
-        <li><i>🔔</i> <span>Notifications</span></li>
-        <li><i>🔌</i> <span>Plugins</span></li>
-      </ul>
-    <button class="toggle-button" id="toggleButton">☰</button>
-    </div>
-<h2> Привіт, {{ user.username }}</h2>
-    <script>
-
-    </script>
+<!--<div class="login_main" style="float: right">
+  {% if user.is_authenticated %}
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button class="sign_up" type="submit">Вийти</button>
+  </form>
+  {% else %}
+  <a href="{% url 'login' %}">Увійти</a>
+  {% endif %}
+</div>
+<h2>Привіт, {{ user.username }}</h2> -->
 
 {% endblock %}
-
-
-
